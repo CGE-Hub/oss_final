@@ -56,8 +56,8 @@
               if(obj.lbrry_seq_no == idx){
                 //console.log(obj);
 
-                lat = obj.xcnts;
-                lng = obj.ydnts;
+                var lati = obj.xcnts;
+                var long = obj.ydnts;
 
                 addToTable(obj);
                 pos(obj.xcnts, obj.ydnts);
@@ -133,7 +133,7 @@
     lognitude = lng;
   }
   
-  console.log(latitude);
+  console.log(lati);
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
