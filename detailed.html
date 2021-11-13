@@ -60,7 +60,6 @@
                 var long = obj.ydnts;
 
                 addToTable(obj);
-                pos(obj);
               }
             });
           });
@@ -124,20 +123,15 @@
 <!-- 지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afb41c5b677efee59e0832663e8b896d"></script>
 <script>
-  let latitude = 0.0;
-  let longitude = 0.0;
-  
-  function pos(obj){
-    console.log(obj.xcnts);
-    latitude += obj.xcnts;
-    longitude += obj.ydnts;
-  }
-  console.log(latitude);
+  const sear2 = window.location.search;
+  const param2 = new URLSearchParams(sear2);
+  const latitude = param.get('latitude');
+  const longitude = param.get('longitude');
   
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
