@@ -63,6 +63,7 @@
                 lng = obj.ydnts;
 
                 addToTable(obj);
+                pos(obj.xcnts, obj.ydnts);
               }
             });
           });
@@ -125,7 +126,13 @@
 <!-- 지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afb41c5b677efee59e0832663e8b896d"></script>
 <script>
-  //console.log(lat);
+  let latitude;
+  let longitude;
+  function pos(lat, lng){
+    latitude = lat;
+    lognitude = lng;
+  }
+  console.log(latitude);
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
