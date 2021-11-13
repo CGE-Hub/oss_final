@@ -60,7 +60,7 @@
                 var long = obj.ydnts;
 
                 addToTable(obj);
-                pos(obj.xcnts, obj.ydnts);
+                pos(obj);
               }
             });
           });
@@ -124,16 +124,15 @@
 <!-- 지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afb41c5b677efee59e0832663e8b896d"></script>
 <script>
-  var latitude = 33.450701;
-  var longitude = 126.570667;
+  let latitude = 33.450701;
+  let longitude = 126.570667;
   
-  function pos(lat, lng){
-    console.log(lat);
-    latitude = lat;
-    lognitude = lng;
+  function pos(obj){
+    latitude = obj.xcnts;
+    lognitude = obj.ydnts;
   }
+  console.log(latitude);
   
-  console.log(lati);
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
