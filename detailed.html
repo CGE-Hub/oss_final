@@ -48,9 +48,6 @@
       const idx = param.get('lbrry_seq_no');
       //console.log(idx);
 
-      var lng;
-      var lat;
-      
       window.addEventListener("load", () => {
         fetch("library_seoul.json")
           .then((response) => response.json())
@@ -126,8 +123,8 @@
 <!-- 지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afb41c5b677efee59e0832663e8b896d"></script>
 <script>
-  let latitude;
-  let longitude;
+  var latitude;
+  var longitude;
   function pos(lat, lng){
     console.log(lat);
     latitude = lat;
