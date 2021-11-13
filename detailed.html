@@ -124,12 +124,13 @@
 <!-- 지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afb41c5b677efee59e0832663e8b896d"></script>
 <script>
-  let latitude = 33.450701;
-  let longitude = 126.570667;
+  let latitude = 0.0;
+  let longitude = 0.0;
   
   function pos(obj){
-    latitude = obj.xcnts;
-    lognitude = obj.ydnts;
+    console.log(obj.xcnts);
+    latitude += obj.xcnts;
+    lognitude += obj.ydnts;
   }
   console.log(latitude);
   
