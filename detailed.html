@@ -26,8 +26,6 @@
             data.DATA.forEach((obj) => {
               if(obj.lbrry_seq_no == idx){
                 //console.log(obj);
-                //var name = obj.lbrry_name;
-                //var open = obj.op_time;
                 
                 addToTable(obj);
                 myMap(obj);
@@ -67,29 +65,6 @@
     <!--표에 넣을 데이터-->
     <script type="test/javascript" scr="main.js"></script>
     <script>
-      /*
-      const sear = window.location.search;
-      const param = new URLSearchParams(sear);
-      const idx = param.get('lbrry_seq_no');
-      //console.log(idx);
-
-      window.addEventListener("load", () => {
-        fetch("library_seoul.json")
-          .then((response) => response.json())
-          .then((data) => {
-            data.DATA.forEach((obj) => {
-              if(obj.lbrry_seq_no == idx){
-                //console.log(obj);
-                //var name = obj.lbrry_name;
-                //var open = obj.op_time;
-                
-                addToTable(obj);
-                
-              }
-            });
-          });
-      });
-      */
 
       function addToTable(obj) {
         let tr1 = document.createElement("tr");
@@ -165,7 +140,7 @@
     
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
