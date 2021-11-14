@@ -55,11 +55,15 @@
             data.DATA.forEach((obj) => {
               if(obj.lbrry_seq_no == idx){
                 //console.log(obj);
-                var name = obj.lbrry_name;
-                var open = obj.op_time;
+                //var name = obj.lbrry_name;
+                //var open = obj.op_time;
                 
                 addToTable(obj);
-                info(obj);
+                document.addEventListener("DOMContentLoaded", function(){
+                  console.log(obj.lbrry_name);
+                  var name = obj.lbrry_name;
+                  console.log(name);
+                });
               }
             });
           });
@@ -131,11 +135,7 @@
   const latitude = param.get('latitude');
   const longitude = param.get('longitude');
   
-  document.addEventListener("DOMContentLoaded", function info(obj){
-    console.log(obj.lbrry_name);
-    var name = obj.lbrry_name;
-    console.log(name);
-  });
+
   console.log(name);
   
 
