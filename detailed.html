@@ -59,6 +59,7 @@
                 var open = obj.op_time;
                 
                 addToTable(obj);
+                info(obj);
               }
             });
           });
@@ -130,10 +131,12 @@
   const latitude = param.get('latitude');
   const longitude = param.get('longitude');
   
-  var name = document.getElementById("lib_name");
-  //var open = document.getElementById('lib_open');
+  document.addEventListener("DOMContentLoaded", function info(obj){
+    console.log(obj.lbrry_name);
+    var name = obj.lbrry_name;
+    console.log(name);
+  });
   console.log(name);
-  //console.log(open);
   
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
