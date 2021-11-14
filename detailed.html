@@ -12,6 +12,30 @@
     <!--
     <link rel="stylesheet" href="detailed_style.css">
     -->
+    
+    <script>
+      const sear = window.location.search;
+      const param = new URLSearchParams(sear);
+      const idx = param.get('lbrry_seq_no');
+      //console.log(idx);
+
+      window.addEventListener("load", () => {
+        fetch("library_seoul.json")
+          .then((response) => response.json())
+          .then((data) => {
+            data.DATA.forEach((obj) => {
+              if(obj.lbrry_seq_no == idx){
+                //console.log(obj);
+                //var name = obj.lbrry_name;
+                //var open = obj.op_time;
+                
+                addToTable(obj);
+                myMap(obj);
+              }
+            });
+          });
+      });
+    </script>
 
   </head>
 
@@ -43,6 +67,7 @@
     <!--표에 넣을 데이터-->
     <script type="test/javascript" scr="main.js"></script>
     <script>
+      /*
       const sear = window.location.search;
       const param = new URLSearchParams(sear);
       const idx = param.get('lbrry_seq_no');
@@ -64,6 +89,7 @@
             });
           });
       });
+      */
 
       function addToTable(obj) {
         let tr1 = document.createElement("tr");
@@ -92,10 +118,10 @@
         let td4 = document.createElement("td");
         let td5 = document.createElement("td");
         let td6 = document.createElement("td");
-        //td1.appendChild(document.createTextNode(obj.lbrry_name));
-        let t1 = document.createElement("td");
-        t1.innerHTML = '<td id="lib_name">'+obj.lbrry_name+'</td>';
-        td1.appendChild(t1);
+        td1.appendChild(document.createTextNode(obj.lbrry_name));
+        //let t1 = document.createElement("td");
+        //t1.innerHTML = '<td id="lib_name">'+obj.lbrry_name+'</td>';
+        //td1.appendChild(t1);
         td2.appendChild(document.createTextNode(obj.tel_no));
         let link = document.createElement("a");
         link.innerHTML = '<a href="'+obj.hmpg_url+'">'+obj.hmpg_url+'</a>';
@@ -131,6 +157,9 @@
   const latitude = param.get('latitude');
   const longitude = param.get('longitude');
   
+  function myMap(obj){
+    console.log(obj.lbrry_name);
+  }
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
