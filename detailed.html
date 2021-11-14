@@ -92,14 +92,14 @@
         let td5 = document.createElement("td");
         let td6 = document.createElement("td");
         //td1.appendChild(document.createTextNode(obj.lbrry_name));
-        td1.innerHTML = '<td id="lib_name">'+obj.lbrry_name+'</td>';
-        td1.appendChild(td1);
+        let t1 = document.createElement("td");
+        t1.innerHTML = '<td id="lib_name">'+obj.lbrry_name+'</td>';
+        td1.appendChild(t1);
         td2.appendChild(document.createTextNode(obj.tel_no));
         let link = document.createElement("a");
         link.innerHTML = '<a href="'+obj.hmpg_url+'">'+obj.hmpg_url+'</a>';
         td3.appendChild(link);
-        td4.innerHTML = '<td id="lib_open">'+obj.op_time+'</td>';
-        td4.appendChild(td4);
+        td4.appendChild(document.createTextNode(obj.op_time));
         td5.appendChild(document.createTextNode(obj.fdrm_close_date));
         td6.appendChild(document.createTextNode(obj.adres));
 
@@ -131,9 +131,9 @@
   const longitude = param.get('longitude');
   
   var name = document.getElementById('lib_name');
-  var open = document.getElementById('lib_open');
+  //var open = document.getElementById('lib_open');
   console.log(name);
-  console.log(open);
+  //console.log(open);
   
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
