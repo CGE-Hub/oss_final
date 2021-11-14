@@ -55,8 +55,8 @@
             data.DATA.forEach((obj) => {
               if(obj.lbrry_seq_no == idx){
                 //console.log(obj);
-                var name = obj.lbrry_name;
-                var open = obj.op_time;
+                static var name = obj.lbrry_name;
+                static var open = obj.op_time;
                 
                 addToTable(obj);
               }
