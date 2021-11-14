@@ -21,7 +21,7 @@
           .then((data) => {
             data.DATA.forEach((obj) => {
                 myMap(obj);
-                setCenter();
+                //setCenter();
             });
           });
       });
@@ -56,7 +56,7 @@
   
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
   mapOption = { 
-      center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+      center: new kakao.maps.LatLng(37.53061779, 127.0306528), // 지도의 중심좌표
       level: 5 // 지도의 확대 레벨
   };
 
@@ -64,6 +64,7 @@
   var map = new kakao.maps.Map(mapContainer, mapOption);
   
   function myMap(obj){
+    var idx = obj.lbrry_seq_no;
     var name = obj.lbrry_name;
     var rtime = obj.op_time;
     var lat = obj.xcnts;
@@ -81,7 +82,7 @@
     marker.setMap(map);
     
     // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-    var iwContent = '<div style="padding:5px; width:300px;"><a href="'+obj.hmpg_url+'">'+name+'</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    var iwContent = '<div style="text-align:center; padding:5px; width:300px;" onclick="send_detail('+idx+');">'+name+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
     // 인포윈도우를 생성합니다
@@ -105,6 +106,10 @@
     
     // 지도 중심을 이동 시킵니다
     map.setCenter(moveLatLon);
+  }
+  
+  function send_detail(idx){
+    location.href = "detailed.html?lbrry_seq_no="+idx;
   }
 
 </script>
