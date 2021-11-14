@@ -92,7 +92,7 @@
         button.addEventListener("click", () => {
           console.log(obj);
           //클릭
-          send_detail(obj.lbrry_seq_no, obj.xcnts, obj.ydnts);
+          send_detail(obj.lbrry_seq_no);
         });
         let table = document.querySelector("#info");
         table.appendChild(tr);
@@ -152,9 +152,9 @@
 
 
 
-      function send_detail(idx, lat, lng){
+      function send_detail(idx){
         //console.log(idx);
-        location.href = "detailed.html?lbrry_seq_no="+idx+"&latitude="+lat+"&longitude="+lng;
+        location.href = "detailed.html?lbrry_seq_no="+idx;
       }
     </script>
 
