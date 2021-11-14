@@ -95,13 +95,13 @@
           infowindow.open(map, marker);  
     });
     
-    setCenter(lat, lng);   
+    setCenter();   
     
   }
   
-  function setCenter(lat, lng) {            
+  function setCenter() {            
     // 이동할 위도 경도 위치를 생성합니다 
-    var moveLatLon = new kakao.maps.LatLng(lat, lng);
+    var moveLatLon = new kakao.maps.LatLng(37.53061779, 127.0306528);
     
     // 지도 중심을 이동 시킵니다
     map.setCenter(moveLatLon);
