@@ -21,6 +21,7 @@
           .then((data) => {
             data.DATA.forEach((obj) => {
                 myMap(obj);
+                setCenter();
             });
           });
       });
@@ -95,7 +96,6 @@
           infowindow.open(map, marker);  
     });
     
-    setCenter();   
     
   }
   
