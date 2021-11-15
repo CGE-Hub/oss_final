@@ -97,25 +97,23 @@
     let td5 = document.createElement("td");
     let td6 = document.createElement("td");
     
-    var lib_name = obj.lbrry_name;
-    var new_name = lib_name.replace('null', '정보 없음');
-    var lib_tel = obj.tel_no;
-    var new_tel = lib_tel.replace('null', '정보 없음');
-    var lib_url = obj.hmpg_url;
-    var new_url = lib_url.replace('null', '정보 없음');
-    var lib_op = obj.op_time;
-    var new_op = lib_op.replace('null', '정보 없음');
-    var lib_close = obj.fdrm_close_date;
-    var new_close = lib_close.replace('null', '정보 없음');
-    var lib_addr = obj.adres;
-    var new_addr = lib_addr.replace('null', '정보 없음');
-    
-    console.log(new_tel);
-    console.log(new_url);
+    var no_info = "정보 없음";
+    if(obj.tel_no == null){
+      console.log("tel 정보 없음");
+    }
+    if(obj.hmpg_url == null){
+      console.log("url 정보 없음");
+    }
+    if(obj.op_time == null){
+      console.log("op_time 정보 없음");
+    }
+    if(obj.fdrm_close_date == null){
+      console.log("close 정보 없음");
+    }
     
     td1.appendChild(document.createTextNode(obj.lbrry_name));
     td2.appendChild(document.createTextNode(obj.tel_no));
-    if(new_url==="정보 없음"){
+    if(obj.hmpg_url == null){
         td3.appendChild(document.createTextNode(obj.hmpg_url));
     }else{
         let link = document.createElement("a");
@@ -152,11 +150,12 @@
   function myMap(obj){
     var name = obj.lbrry_name;
     var rtime = obj.op_time;
-    var op = rtime.replace('null', '운영시간 정보 없음');
     var lat = obj.xcnts;
     var lng = obj.ydnts;
     
-    console.log("op = "+op);
+    if(rtime == null){
+      console.log("지도 op_time 정보 없음");
+    }
     
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
