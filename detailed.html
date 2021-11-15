@@ -97,7 +97,7 @@
     let td5 = document.createElement("td");
     let td6 = document.createElement("td");
     td1.appendChild(document.createTextNode(obj.lbrry_name));
-    td2.appendChild(document.createTextNode((obj.tel_no).replace(/null/g, '정보 없음')));
+    td2.appendChild(document.createTextNode(rep(obj.tel_no)));
     if(obj.hmpg_url==="null"){
         td3.appendChild(document.createTextNode(obj.hmpg_url));
     }else{
@@ -175,4 +175,10 @@
     });
   }
 
+</script>
+
+<script>
+    function rep(content){
+      return content.replace(/null/, '정보 없음');
+    }
 </script>
