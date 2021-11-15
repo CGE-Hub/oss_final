@@ -96,18 +96,18 @@
     let td4 = document.createElement("td");
     let td5 = document.createElement("td");
     let td6 = document.createElement("td");
-    td1.appendChild(document.createTextNode(obj.lbrry_name.replace('null', '정보 없음')));
-    td2.appendChild(document.createTextNode(obj.tel_no.replace('null', '정보 없음')));
+    td1.appendChild(document.createTextNode((obj.lbrry_name).replace('null', '정보 없음')));
+    td2.appendChild(document.createTextNode((obj.tel_no).replace('null', '정보 없음')));
     if(obj.hmpg_url=="null"){
-        td3.appendChild(document.createTextNode(obj.hmpg_url. replace('null', '정보 없음')));
+        td3.appendChild(document.createTextNode((obj.hmpg_url).replace('null', '정보 없음')));
     }else{
         let link = document.createElement("a");
         link.innerHTML = '<a href="'+obj.hmpg_url+'">'+obj.hmpg_url+'</a>';
         td3.appendChild(link);
     }
-    td4.appendChild(document.createTextNode(obj.op_time.replace('null', '정보 없음')));
-    td5.appendChild(document.createTextNode(obj.fdrm_close_date.replace('null', '정보 없음')));
-    td6.appendChild(document.createTextNode(obj.adres.replace('null', '정보 없음')));
+    td4.appendChild(document.createTextNode((obj.op_time).replace('null', '정보 없음')));
+    td5.appendChild(document.createTextNode((obj.fdrm_close_date).replace('null', '정보 없음')));
+    td6.appendChild(document.createTextNode((obj.adres).replace('null', '정보 없음')));
 
     tr1.appendChild(th1); tr1.appendChild(td1);
     tr2.appendChild(th2); tr2.appendChild(td2);
@@ -134,7 +134,7 @@
  
   function myMap(obj){
     var name = obj.lbrry_name;
-    var rtime = obj.op_time.replace('null', '운영시간 정보 없음');
+    var rtime = (obj.op_time).replace('null', '운영시간 정보 없음');
     var lat = obj.xcnts;
     var lng = obj.ydnts;
     
