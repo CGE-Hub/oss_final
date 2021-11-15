@@ -98,30 +98,33 @@
     let td6 = document.createElement("td");
     
     var no_info = "정보 없음";
+    td1.appendChild(document.createTextNode(obj.lbrry_name));
     if(obj.tel_no == null){
-      console.log("tel 정보 없음");
-    }
-    if(obj.hmpg_url == null){
-      console.log("url 정보 없음");
-    }
-    if(obj.op_time == null){
-      console.log("op_time 정보 없음");
-    }
-    if(obj.fdrm_close_date == null){
-      console.log("close 정보 없음");
+      td2.appendChild(document.createTextNode(no_info));
+    }else{
+      td2.appendChild(document.createTextNode(obj.tel_no));
     }
     
-    td1.appendChild(document.createTextNode(obj.lbrry_name));
-    td2.appendChild(document.createTextNode(obj.tel_no));
     if(obj.hmpg_url == null){
-        td3.appendChild(document.createTextNode(obj.hmpg_url));
+      td3.appendChild(document.createTextNode(no_info));
     }else{
-        let link = document.createElement("a");
-        link.innerHTML = '<a href="'+obj.hmpg_url+'">'+obj.hmpg_url+'</a>';
-        td3.appendChild(link);
+      let link = document.createElement("a");
+      link.innerHTML = '<a href="'+obj.hmpg_url+'">'+obj.hmpg_url+'</a>';
+      td3.appendChild(link);
     }
-    td4.appendChild(document.createTextNode(obj.op_time));
-    td5.appendChild(document.createTextNode(obj.fdrm_close_date));
+    
+    if(obj.op_time == null){
+      td4.appendChild(document.createTextNode(no_info));
+    }else{
+      td4.appendChild(document.createTextNode(obj.op_time));
+    }
+    
+    if(obj.fdrm_close_date == null){
+      td5.appendChild(document.createTextNode(no_info));
+    }else{
+      td5.appendChild(document.createTextNode(obj.fdrm_close_date));
+    }
+
     td6.appendChild(document.createTextNode(obj.adres));
 
     tr1.appendChild(th1); tr1.appendChild(td1);
@@ -154,8 +157,9 @@
     var lng = obj.ydnts;
     
     if(rtime == null){
-      console.log("지도 op_time 정보 없음");
+      rtime = "운영시간 정보 없음";
     }
+    console.log("지도 op_time 정보 없음");
     
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
