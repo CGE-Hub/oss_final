@@ -83,17 +83,19 @@
         td1.appendChild(document.createTextNode(obj.lbrr_name));
         td2.appendChild(document.createTextNode(obj.code_value));
         let button = document.createElement("button");
-        button.innerHTML = '<i class="bi bi-info-circle" width="20px"></i>';
+        button.innerHTML = '<i class="bi bi-info-circle" width="20px" onclick="send_detail('+obj.lbrry_seq_no+');" target="_blank"></i>';
         td3.appendChild(button);
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         //상세정보 버튼
+        /*
         button.addEventListener("click", () => {
           console.log(obj);
           //클릭
           send_detail(obj.lbrry_seq_no);
         });
+        */
         let table = document.querySelector("#info");
         table.appendChild(tr);
       }
