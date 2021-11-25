@@ -72,39 +72,40 @@
 <script>
   
   function bookmark(obj) {
-                let bookButton = document.querySelector('#bookmarkButton');
-                let bookmarkList = JSON.parse(localStorage.getItem("bookmarkData")); 
+    let bookButton = document.querySelector('#bookmarkButton');
+    let bookmarkList = JSON.parse(localStorage.getItem("bookmarkData")); 
 
-                if (bookmarkList.includes(obj.lbrry_seq_no)) {
-                    bookButton.classList.add("activate");
-                    bookButton.ariaPressed = "true";
-                    alert("This lib is bookmarked")
-                }
+    if (bookmarkList.includes(obj.lbrry_seq_no)) {
+      bookButton.classList.add("activate");
+      bookButton.ariaPressed = "true";
+      alert("This lib is bookmarked")
+    }
                 
-                bookButton.addEventListener("click", () => {
-                    if (bookButton.classList.contains("activate")) {
-                        alert("Removed from Favorites")
-                        bookButton.classList.remove("activate");
-                        bookButton.classList.add("deactivate");
-
-                        for (let index = 0; index < bookmarkList.length; index++) {
-                            if (obj.lbrry_seq_no === bookmarkList[index]) {
-                                bookmarkList.splice(index, 1);
-                                index--;
-                            } 
-                        }
-                    } else {
-                        alert("Added to Favorites")
-                        bookButton.classList.remove("deactivate");
-                        bookButton.classList.add("activate");
+    bookButton.addEventListener("click", () => {
+      if (bookButton.classList.contains("activate")) {
+        alert("Removed from Favorites")
+        bookButton.classList.remove("activate");
+        bookButton.classList.add("deactivate");
+        
+        for (let index = 0; index < bookmarkList.length; index++) {
+          if (obj.lbrry_seq_no === bookmarkList[index]) {
+          bookmarkList.splice(index, 1);
+          index--;
+          } 
+        }
+      } else {
+        alert("Added to Favorites")
+        bookButton.classList.remove("deactivate");
+        bookButton.classList.add("activate");
                         
-                        bookmarkList.push(obj.lbrry_seq_no);
-                    }
-                    console.log(bookmarkList)
-                    localStorage.setItem("bookmarkData", JSON.stringify(bookmarkList));
-                })
+        bookmarkList.push(obj.lbrry_seq_no);
+      }
+      
+      console.log(bookmarkList)
+      localStorage.setItem("bookmarkData", JSON.stringify(bookmarkList));
+    })
                 
-            }
+  }
 
   function addToTable(obj) {
     let tr1 = document.createElement("tr");
